@@ -20,8 +20,9 @@ using Ionic.Zip;
 using System.Diagnostics;
 using Shared;
 
-using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
+
+
 
 namespace StringHelper
 {
@@ -868,10 +869,6 @@ namespace StringHelper
             }
         }
 
-        private void toolStripButton1_Click(object sender, EventArgs e)
-        {
-
-        }
 
         private void lRCToolStripMenuItem_Click(object sender, EventArgs e)
         {
@@ -934,21 +931,30 @@ namespace StringHelper
                 MessageBox.Show(exception.Message);
             }
         }
+        KeyboardHook _keyboardHotKeyF1 = new KeyboardHook();
 
         private void 获取屏幕颜色ToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            try
-            {
-                var (r, g, b) = Colors.GetColorAt();
 
-                Clipboard.SetText($"{r.ToString("X2")}{g.ToString("X2")}{b.ToString("X2")}");
-            }
-            catch (
-            Exception exception)
-            {
 
-                MessageBox.Show(exception.Message);
-            }
+            _keyboardHotKeyF1.RegisterHotKey(Shared.ModifierKeys.None, Keys.F1);
+            _keyboardHotKeyF1.KeyPressed += (o, k) =>
+            {
+                try
+                {
+                    var (r, g, b) = Colors.GetColorAt();
+
+                    Clipboard.SetText($"{r.ToString("X2")}{g.ToString("X2")}{b.ToString("X2")}");
+                }
+                catch (
+                Exception exception)
+                {
+
+                    MessageBox.Show(exception.Message);
+                }
+            };
+
+           
         }
 
         private void converttoicoButton_Click(object sender, EventArgs e)
@@ -1943,7 +1949,7 @@ namespace StringHelper
                 }
             });
         }
-            KeyboardHook _keyboardHotKeyF6 = new KeyboardHook();
+        KeyboardHook _keyboardHotKeyF6 = new KeyboardHook();
 
         private void 编译SCSSToolStripMenuItem_Click(object sender, EventArgs e)
         {
@@ -1953,32 +1959,32 @@ namespace StringHelper
             _keyboardHotKeyF6.KeyPressed += (o, k) =>
             {
 
-                
+
 
                 var fileName = @"C:\Program Files\libsass\sassc.exe";
-                var targetFileName = @"C:\Users\Administrator\Desktop\ZZZ\style\style.scss";
-                var outFileName = @"C:\Users\Administrator\Desktop\ZZZ\style\style.css";
+                var targetFileName = @"C:\Users\Administrator\Desktop\ZZZ\.frontend\app.scss";
+                var outFileName = @"C:\Users\Administrator\Desktop\ZZZ\.frontend\app.css";
                 Process.Start(fileName, $"--style compact \"{targetFileName}\" \"{outFileName}\"");
             };
         }
 
         private void 下载nginxconfToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            
-                var host = "180.76.145.233";
-                var username = "root";
-                var password = "yzlA9Q82itbN#";
-                using (var sf = new Renci.SshNet.SftpClient(host, username, password))
-                {
-                    sf.Connect();
-                var f = "nginx.conf".GetDesktopPath();
-                    using (var stream = File.Open(f, FileMode.OpenOrCreate))
-                    {
-                        sf.DownloadFile( "/etc/nginx/" + f.GetFileName(), stream);
-                    }
 
+            var host = "180.76.145.233";
+            var username = "root";
+            var password = "yzlA9Q82itbN#";
+            using (var sf = new Renci.SshNet.SftpClient(host, username, password))
+            {
+                sf.Connect();
+                var f = "nginx.conf".GetDesktopPath();
+                using (var stream = File.Open(f, FileMode.OpenOrCreate))
+                {
+                    sf.DownloadFile("/etc/nginx/" + f.GetFileName(), stream);
                 }
-           
+
+            }
+
         }
 
         private void 上传databasesToolStripMenuItem_Click(object sender, EventArgs e)
@@ -2012,6 +2018,166 @@ namespace StringHelper
                     }
                 }
 
+            });
+        }
+
+
+
+        private void 下载databasesToolStripMenuItem_Click_1(object sender, EventArgs e)
+        {
+            ClipboardFilesAction(fs =>
+            {
+                var host = "180.76.145.233";
+                var username = "root";
+                var password = "yzlA9Q82itbN#";
+
+
+                using (var sf = new Renci.SshNet.SftpClient(host, username, password))
+                {
+                    sf.Connect();
+
+
+
+                    var tf = "/usr/share/nginx/html/databases/articles.db";
+
+
+
+                    var stream = new FileStream("articles.db".GetDesktopPath(), FileMode.OpenOrCreate);
+
+                    sf.DownloadFile(tf, stream);
+
+                    stream.Close();
+
+                }
+            }
+
+            );
+        }
+
+        private void 排序JSONToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            ClipboardTextAction(v =>
+            {
+                var obj = Newtonsoft.Json.JsonConvert.DeserializeObject<Dictionary<string, List<Dictionary<string, string>>>>(v);
+
+                var items = obj["items"].OrderBy(i => i["name"]).ToList();
+
+                var outputObj = new Dictionary<string, List<Dictionary<string, string>>>();
+                outputObj.Add("items", items);
+
+                return Newtonsoft.Json.JsonConvert.SerializeObject(outputObj);
+            });
+        }
+
+        private void 移除空行ToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            ClipboardTextAction(v =>
+            {
+
+                return string.Join("\n", v.Split('\n').Where(i => i.IsReadable()).Select(i => i.TrimEnd()));
+            });
+        }
+
+        private void 提取PREToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            ClipboardDirectoryAction(v =>
+            {
+                var files = Directory.GetFiles(v, "*.html");
+                var hd = new HtmlAgilityPack.HtmlDocument();
+                var sb = new StringBuilder();
+
+                foreach (var itemv in files)
+                {
+                    hd.LoadHtml(itemv.ReadAllText());
+
+                    var children = hd.DocumentNode.SelectNodes("//h1|//h2|//pre");
+                    if (children == null) return;
+
+                    foreach (var item in children)
+                    {
+                        //var items = item.ChildNodes;
+
+                        //foreach (var its in items)
+                        //{
+                        //    if (its.GetAttributeValue("class", "") != "p")
+                        //        sb.Append(HtmlAgilityPack.HtmlEntity.DeEntitize(its.InnerText));
+                        //    else
+
+                        //        sb.AppendLine(HtmlAgilityPack.HtmlEntity.DeEntitize(its.InnerText));
+                        //}
+                        if (item.Name == "h1")
+                        {
+                            sb.AppendLine("# " + HtmlAgilityPack.HtmlEntity.DeEntitize(item.InnerText).Trim()).AppendLine();
+                            continue;
+                        }
+                        if (item.Name == "h2")
+                        {
+                            sb.AppendLine("## " + HtmlAgilityPack.HtmlEntity.DeEntitize(item.InnerText).Trim()).AppendLine();
+                            continue;
+                        }
+                        sb.AppendLine().AppendLine().Append("```").AppendLine();
+                        sb.AppendLine(Regex.Replace(HtmlAgilityPack.HtmlEntity.DeEntitize(item.InnerText), "[\r\n]+", "\r\n"));
+                        sb.Append("```").AppendLine().AppendLine();
+
+                    }
+                }
+
+
+                Clipboard.SetText(sb.ToString());
+            });
+        }
+
+        private void 格式化代码为段落ToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            ClipboardTextAction(v =>
+            {
+
+                var sb = new StringBuilder();
+
+                var splited = v.Split('\n').Select(i => i.TrimEnd());
+
+                foreach (var item in splited)
+                {
+                    sb.AppendLine($"\"{item.FormatCode()}\",");
+                }
+                return sb.ToString();
+            });
+        }
+
+        private void 生成CSSLinksToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            ClipboardDirectoryAction(v =>
+            {
+                var files = Directory.GetFiles(v, "*.css");
+
+                var sb = new StringBuilder();
+
+                foreach (var item in files)
+                {
+                    sb.AppendLine($"<link href=\"{item.GetFileName()}\" rel=\"stylesheet\">");
+
+                }
+
+                Clipboard.SetText(sb.ToString());
+            });
+
+        }
+
+        private void 合并CSSToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            ClipboardDirectoryAction(v =>
+            {
+                var files = Directory.GetFiles(v, "*.css");
+
+                var sb = new StringBuilder();
+
+                foreach (var item in files)
+                {
+                    sb.Append(item.ReadAllText()).AppendLine();
+
+                }
+
+                Clipboard.SetText(sb.ToString());
             });
         }
     }

@@ -200,6 +200,18 @@ namespace Shared
     }
     public static class Strings
     {
+
+
+        public static string FormatCode(this string v)
+        {
+
+            v = v.Replace("\r", "");
+            v = v.Replace("\\", "\\\\");
+            v = v.Replace("\n", "\\n");
+            v = v.Replace("\"", "\\\"");
+
+            return v;
+        }
         public static string Repeat(this char c, int count)
         {
             return new String(c, count);
@@ -348,7 +360,8 @@ namespace Shared
                 {
                     sb.AppendLine(";");
                     sb.Append('\t'.Repeat(count));
-                } else if (item == '\r' || item == '\n' || item == '\t')
+                }
+                else if (item == '\r' || item == '\n' || item == '\t')
                 {
 
                     continue;

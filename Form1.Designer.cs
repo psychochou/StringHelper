@@ -30,25 +30,23 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             this.toolStripOne = new System.Windows.Forms.ToolStrip();
-            this.formatBlockCommentButton = new System.Windows.Forms.ToolStripButton();
             this.extractMethodListButton = new System.Windows.Forms.ToolStripButton();
-            this.toolStripSplitButton1 = new System.Windows.Forms.ToolStripSplitButton();
-            this.创建C文件ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStrip1 = new System.Windows.Forms.ToolStrip();
-            this.formatFileNameButton = new System.Windows.Forms.ToolStripButton();
-            this.formatOrderStringButton = new System.Windows.Forms.ToolStripButton();
-            this.formatCodeButton = new System.Windows.Forms.ToolStripButton();
             this.toolStrip2 = new System.Windows.Forms.ToolStrip();
             this.generateSublimeCWinSnippets = new System.Windows.Forms.ToolStripSplitButton();
             this.生成JavaScriptSublimeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.javascriptSplitButton = new System.Windows.Forms.ToolStripSplitButton();
+            this.排序JSONToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.cssStripSplitButton = new System.Windows.Forms.ToolStripSplitButton();
             this.排序CSSToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.压缩CSSToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.解压CSSToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator7 = new System.Windows.Forms.ToolStripSeparator();
             this.编译SCSSToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.生成CSSLinksToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.合并CSSToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.htmlsSplitButton = new System.Windows.Forms.ToolStripSplitButton();
             this.生成表格ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.提取PREToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.serverSplitButton = new System.Windows.Forms.ToolStripSplitButton();
             this.上传nginxconfToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.下载nginxconfToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -60,8 +58,16 @@
             this.映射上传文件ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator8 = new System.Windows.Forms.ToolStripSeparator();
             this.上传imagesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.上传databasesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.下载databasesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.formatSplitButton = new System.Windows.Forms.ToolStripSplitButton();
             this.格式化NginxToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.格式化代码一行ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.移除空行ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.格式化文件名ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.格式化注释块ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.sortSplitButton = new System.Windows.Forms.ToolStripSplitButton();
+            this.严格排序字符串ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripExe = new System.Windows.Forms.ToolStrip();
             this.formatEpub = new System.Windows.Forms.ToolStripSplitButton();
             this.整理EPUBSToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -69,11 +75,10 @@
             this.删除重复的MOBIToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.clangFormatButton = new System.Windows.Forms.ToolStripButton();
             this.formatEbooksByAuthorNameButton = new System.Windows.Forms.ToolStripButton();
-            this.toolStripSplitButton2 = new System.Windows.Forms.ToolStripSplitButton();
+            this.lyndaButton = new System.Windows.Forms.ToolStripSplitButton();
             this.加密文本文字ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.lRCToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.lRC3ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripButton1 = new System.Windows.Forms.ToolStripButton();
             this.hotkeySplitButton = new System.Windows.Forms.ToolStripSplitButton();
             this.f1ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.codeGeneratorButton = new System.Windows.Forms.ToolStripSplitButton();
@@ -86,6 +91,8 @@
             this.magnetTorrentToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.ebooksButton = new System.Windows.Forms.ToolStripSplitButton();
             this.格式化PDF转TXTToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.代码段 = new System.Windows.Forms.ToolStripSplitButton();
+            this.格式化代码为段落ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.htmltools = new System.Windows.Forms.ToolStrip();
             this.formatTableButton = new System.Windows.Forms.ToolStripButton();
             this.formatMSDNTableButton = new System.Windows.Forms.ToolStripButton();
@@ -140,9 +147,7 @@
             this.toolStripSeparator4 = new System.Windows.Forms.ToolStripSeparator();
             this.s9 = new System.Windows.Forms.ToolStripButton();
             this.textBox2 = new System.Windows.Forms.TextBox();
-            this.上传databasesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripOne.SuspendLayout();
-            this.toolStrip1.SuspendLayout();
             this.toolStrip2.SuspendLayout();
             this.toolStripExe.SuspendLayout();
             this.htmltools.SuspendLayout();
@@ -153,24 +158,12 @@
             // toolStripOne
             // 
             this.toolStripOne.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.formatBlockCommentButton,
-            this.extractMethodListButton,
-            this.toolStripSplitButton1});
+            this.extractMethodListButton});
             this.toolStripOne.Location = new System.Drawing.Point(0, 0);
             this.toolStripOne.Name = "toolStripOne";
-            this.toolStripOne.Size = new System.Drawing.Size(722, 25);
+            this.toolStripOne.Size = new System.Drawing.Size(771, 25);
             this.toolStripOne.TabIndex = 0;
             this.toolStripOne.Text = "提取方法列表";
-            // 
-            // formatBlockCommentButton
-            // 
-            this.formatBlockCommentButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
-            this.formatBlockCommentButton.Image = ((System.Drawing.Image)(resources.GetObject("formatBlockCommentButton.Image")));
-            this.formatBlockCommentButton.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.formatBlockCommentButton.Name = "formatBlockCommentButton";
-            this.formatBlockCommentButton.Size = new System.Drawing.Size(84, 22);
-            this.formatBlockCommentButton.Text = "格式化注释块";
-            this.formatBlockCommentButton.Click += new System.EventHandler(this.formatBlockCommentButton_Click);
             // 
             // extractMethodListButton
             // 
@@ -182,77 +175,19 @@
             this.extractMethodListButton.Text = "提取方法列表";
             this.extractMethodListButton.Click += new System.EventHandler(this.extractMethodListButton_Click);
             // 
-            // toolStripSplitButton1
-            // 
-            this.toolStripSplitButton1.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.toolStripSplitButton1.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.创建C文件ToolStripMenuItem});
-            this.toolStripSplitButton1.Image = ((System.Drawing.Image)(resources.GetObject("toolStripSplitButton1.Image")));
-            this.toolStripSplitButton1.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.toolStripSplitButton1.Name = "toolStripSplitButton1";
-            this.toolStripSplitButton1.Size = new System.Drawing.Size(32, 22);
-            this.toolStripSplitButton1.Text = "toolStripSplitButton1";
-            // 
-            // 创建C文件ToolStripMenuItem
-            // 
-            this.创建C文件ToolStripMenuItem.Name = "创建C文件ToolStripMenuItem";
-            this.创建C文件ToolStripMenuItem.Size = new System.Drawing.Size(132, 22);
-            this.创建C文件ToolStripMenuItem.Text = "创建C文件";
-            this.创建C文件ToolStripMenuItem.Click += new System.EventHandler(this.创建C文件ToolStripMenuItem_Click);
-            // 
-            // toolStrip1
-            // 
-            this.toolStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.formatFileNameButton,
-            this.formatOrderStringButton,
-            this.formatCodeButton});
-            this.toolStrip1.Location = new System.Drawing.Point(0, 25);
-            this.toolStrip1.Name = "toolStrip1";
-            this.toolStrip1.Size = new System.Drawing.Size(722, 25);
-            this.toolStrip1.TabIndex = 1;
-            this.toolStrip1.Text = "toolStrip1";
-            // 
-            // formatFileNameButton
-            // 
-            this.formatFileNameButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
-            this.formatFileNameButton.Image = ((System.Drawing.Image)(resources.GetObject("formatFileNameButton.Image")));
-            this.formatFileNameButton.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.formatFileNameButton.Name = "formatFileNameButton";
-            this.formatFileNameButton.Size = new System.Drawing.Size(84, 22);
-            this.formatFileNameButton.Text = "格式化文件名";
-            this.formatFileNameButton.Click += new System.EventHandler(this.formatFileNameButton_Click);
-            // 
-            // formatOrderStringButton
-            // 
-            this.formatOrderStringButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
-            this.formatOrderStringButton.Image = ((System.Drawing.Image)(resources.GetObject("formatOrderStringButton.Image")));
-            this.formatOrderStringButton.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.formatOrderStringButton.Name = "formatOrderStringButton";
-            this.formatOrderStringButton.Size = new System.Drawing.Size(96, 22);
-            this.formatOrderStringButton.Text = "严格排序字符串";
-            this.formatOrderStringButton.Click += new System.EventHandler(this.formatOrderStringButton_Click);
-            // 
-            // formatCodeButton
-            // 
-            this.formatCodeButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
-            this.formatCodeButton.Image = ((System.Drawing.Image)(resources.GetObject("formatCodeButton.Image")));
-            this.formatCodeButton.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.formatCodeButton.Name = "formatCodeButton";
-            this.formatCodeButton.Size = new System.Drawing.Size(104, 22);
-            this.formatCodeButton.Text = "格式化代码(一行)";
-            this.formatCodeButton.Click += new System.EventHandler(this.formatCodeButton_Click);
-            // 
             // toolStrip2
             // 
             this.toolStrip2.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.generateSublimeCWinSnippets,
+            this.javascriptSplitButton,
             this.cssStripSplitButton,
             this.htmlsSplitButton,
             this.serverSplitButton,
-            this.formatSplitButton});
-            this.toolStrip2.Location = new System.Drawing.Point(0, 50);
+            this.formatSplitButton,
+            this.sortSplitButton});
+            this.toolStrip2.Location = new System.Drawing.Point(0, 25);
             this.toolStrip2.Name = "toolStrip2";
-            this.toolStrip2.Size = new System.Drawing.Size(722, 25);
+            this.toolStrip2.Size = new System.Drawing.Size(771, 25);
             this.toolStrip2.TabIndex = 2;
             this.toolStrip2.Text = "toolStrip2";
             // 
@@ -275,6 +210,24 @@
             this.生成JavaScriptSublimeToolStripMenuItem.Text = "生成 JavaScript（Sublime）";
             this.生成JavaScriptSublimeToolStripMenuItem.Click += new System.EventHandler(this.生成JavaScriptSublimeToolStripMenuItem_Click);
             // 
+            // javascriptSplitButton
+            // 
+            this.javascriptSplitButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
+            this.javascriptSplitButton.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.排序JSONToolStripMenuItem});
+            this.javascriptSplitButton.Image = ((System.Drawing.Image)(resources.GetObject("javascriptSplitButton.Image")));
+            this.javascriptSplitButton.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.javascriptSplitButton.Name = "javascriptSplitButton";
+            this.javascriptSplitButton.Size = new System.Drawing.Size(82, 22);
+            this.javascriptSplitButton.Text = "JavaScript";
+            // 
+            // 排序JSONToolStripMenuItem
+            // 
+            this.排序JSONToolStripMenuItem.Name = "排序JSONToolStripMenuItem";
+            this.排序JSONToolStripMenuItem.Size = new System.Drawing.Size(132, 22);
+            this.排序JSONToolStripMenuItem.Text = "排序JSON";
+            this.排序JSONToolStripMenuItem.Click += new System.EventHandler(this.排序JSONToolStripMenuItem_Click);
+            // 
             // cssStripSplitButton
             // 
             this.cssStripSplitButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
@@ -283,7 +236,9 @@
             this.压缩CSSToolStripMenuItem,
             this.解压CSSToolStripMenuItem,
             this.toolStripSeparator7,
-            this.编译SCSSToolStripMenuItem});
+            this.编译SCSSToolStripMenuItem,
+            this.生成CSSLinksToolStripMenuItem,
+            this.合并CSSToolStripMenuItem});
             this.cssStripSplitButton.Image = ((System.Drawing.Image)(resources.GetObject("cssStripSplitButton.Image")));
             this.cssStripSplitButton.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.cssStripSplitButton.Name = "cssStripSplitButton";
@@ -293,41 +248,56 @@
             // 排序CSSToolStripMenuItem
             // 
             this.排序CSSToolStripMenuItem.Name = "排序CSSToolStripMenuItem";
-            this.排序CSSToolStripMenuItem.Size = new System.Drawing.Size(129, 22);
+            this.排序CSSToolStripMenuItem.Size = new System.Drawing.Size(175, 22);
             this.排序CSSToolStripMenuItem.Text = "排序CSS";
             this.排序CSSToolStripMenuItem.Click += new System.EventHandler(this.排序CSSToolStripMenuItem_Click);
             // 
             // 压缩CSSToolStripMenuItem
             // 
             this.压缩CSSToolStripMenuItem.Name = "压缩CSSToolStripMenuItem";
-            this.压缩CSSToolStripMenuItem.Size = new System.Drawing.Size(129, 22);
+            this.压缩CSSToolStripMenuItem.Size = new System.Drawing.Size(175, 22);
             this.压缩CSSToolStripMenuItem.Text = "压缩CSS";
             this.压缩CSSToolStripMenuItem.Click += new System.EventHandler(this.压缩CSSToolStripMenuItem_Click);
             // 
             // 解压CSSToolStripMenuItem
             // 
             this.解压CSSToolStripMenuItem.Name = "解压CSSToolStripMenuItem";
-            this.解压CSSToolStripMenuItem.Size = new System.Drawing.Size(129, 22);
+            this.解压CSSToolStripMenuItem.Size = new System.Drawing.Size(175, 22);
             this.解压CSSToolStripMenuItem.Text = "解压CSS";
             this.解压CSSToolStripMenuItem.Click += new System.EventHandler(this.解压CSSToolStripMenuItem_Click);
             // 
             // toolStripSeparator7
             // 
             this.toolStripSeparator7.Name = "toolStripSeparator7";
-            this.toolStripSeparator7.Size = new System.Drawing.Size(126, 6);
+            this.toolStripSeparator7.Size = new System.Drawing.Size(172, 6);
             // 
             // 编译SCSSToolStripMenuItem
             // 
             this.编译SCSSToolStripMenuItem.Name = "编译SCSSToolStripMenuItem";
-            this.编译SCSSToolStripMenuItem.Size = new System.Drawing.Size(129, 22);
+            this.编译SCSSToolStripMenuItem.Size = new System.Drawing.Size(175, 22);
             this.编译SCSSToolStripMenuItem.Text = "编译SCSS";
             this.编译SCSSToolStripMenuItem.Click += new System.EventHandler(this.编译SCSSToolStripMenuItem_Click);
+            // 
+            // 生成CSSLinksToolStripMenuItem
+            // 
+            this.生成CSSLinksToolStripMenuItem.Name = "生成CSSLinksToolStripMenuItem";
+            this.生成CSSLinksToolStripMenuItem.Size = new System.Drawing.Size(175, 22);
+            this.生成CSSLinksToolStripMenuItem.Text = "生成CSS（Links）";
+            this.生成CSSLinksToolStripMenuItem.Click += new System.EventHandler(this.生成CSSLinksToolStripMenuItem_Click);
+            // 
+            // 合并CSSToolStripMenuItem
+            // 
+            this.合并CSSToolStripMenuItem.Name = "合并CSSToolStripMenuItem";
+            this.合并CSSToolStripMenuItem.Size = new System.Drawing.Size(175, 22);
+            this.合并CSSToolStripMenuItem.Text = "合并CSS";
+            this.合并CSSToolStripMenuItem.Click += new System.EventHandler(this.合并CSSToolStripMenuItem_Click);
             // 
             // htmlsSplitButton
             // 
             this.htmlsSplitButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
             this.htmlsSplitButton.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.生成表格ToolStripMenuItem});
+            this.生成表格ToolStripMenuItem,
+            this.提取PREToolStripMenuItem});
             this.htmlsSplitButton.Image = ((System.Drawing.Image)(resources.GetObject("htmlsSplitButton.Image")));
             this.htmlsSplitButton.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.htmlsSplitButton.Name = "htmlsSplitButton";
@@ -337,9 +307,16 @@
             // 生成表格ToolStripMenuItem
             // 
             this.生成表格ToolStripMenuItem.Name = "生成表格ToolStripMenuItem";
-            this.生成表格ToolStripMenuItem.Size = new System.Drawing.Size(144, 22);
+            this.生成表格ToolStripMenuItem.Size = new System.Drawing.Size(146, 22);
             this.生成表格ToolStripMenuItem.Text = "生成表格(：)";
             this.生成表格ToolStripMenuItem.Click += new System.EventHandler(this.生成表格ToolStripMenuItem_Click);
+            // 
+            // 提取PREToolStripMenuItem
+            // 
+            this.提取PREToolStripMenuItem.Name = "提取PREToolStripMenuItem";
+            this.提取PREToolStripMenuItem.Size = new System.Drawing.Size(146, 22);
+            this.提取PREToolStripMenuItem.Text = "提取（PRE）";
+            this.提取PREToolStripMenuItem.Click += new System.EventHandler(this.提取PREToolStripMenuItem_Click);
             // 
             // serverSplitButton
             // 
@@ -355,7 +332,8 @@
             this.映射上传文件ToolStripMenuItem,
             this.toolStripSeparator8,
             this.上传imagesToolStripMenuItem,
-            this.上传databasesToolStripMenuItem});
+            this.上传databasesToolStripMenuItem,
+            this.下载databasesToolStripMenuItem});
             this.serverSplitButton.Image = ((System.Drawing.Image)(resources.GetObject("serverSplitButton.Image")));
             this.serverSplitButton.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.serverSplitButton.Name = "serverSplitButton";
@@ -426,23 +404,87 @@
             this.上传imagesToolStripMenuItem.Text = "上传（images）";
             this.上传imagesToolStripMenuItem.Click += new System.EventHandler(this.上传到imagesToolStripMenuItem_Click_1);
             // 
+            // 上传databasesToolStripMenuItem
+            // 
+            this.上传databasesToolStripMenuItem.Name = "上传databasesToolStripMenuItem";
+            this.上传databasesToolStripMenuItem.Size = new System.Drawing.Size(184, 22);
+            this.上传databasesToolStripMenuItem.Text = "上传（databases）";
+            this.上传databasesToolStripMenuItem.Click += new System.EventHandler(this.上传databasesToolStripMenuItem_Click);
+            // 
+            // 下载databasesToolStripMenuItem
+            // 
+            this.下载databasesToolStripMenuItem.Name = "下载databasesToolStripMenuItem";
+            this.下载databasesToolStripMenuItem.Size = new System.Drawing.Size(184, 22);
+            this.下载databasesToolStripMenuItem.Text = "下载（databases）";
+            this.下载databasesToolStripMenuItem.Click += new System.EventHandler(this.下载databasesToolStripMenuItem_Click_1);
+            // 
             // formatSplitButton
             // 
-            this.formatSplitButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.formatSplitButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
             this.formatSplitButton.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.格式化NginxToolStripMenuItem});
+            this.格式化NginxToolStripMenuItem,
+            this.格式化代码一行ToolStripMenuItem,
+            this.移除空行ToolStripMenuItem,
+            this.格式化文件名ToolStripMenuItem,
+            this.格式化注释块ToolStripMenuItem});
             this.formatSplitButton.Image = ((System.Drawing.Image)(resources.GetObject("formatSplitButton.Image")));
             this.formatSplitButton.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.formatSplitButton.Name = "formatSplitButton";
-            this.formatSplitButton.Size = new System.Drawing.Size(32, 22);
-            this.formatSplitButton.Text = "toolStripSplitButton3";
+            this.formatSplitButton.Size = new System.Drawing.Size(60, 22);
+            this.formatSplitButton.Text = "格式化";
             // 
             // 格式化NginxToolStripMenuItem
             // 
             this.格式化NginxToolStripMenuItem.Name = "格式化NginxToolStripMenuItem";
-            this.格式化NginxToolStripMenuItem.Size = new System.Drawing.Size(146, 22);
+            this.格式化NginxToolStripMenuItem.Size = new System.Drawing.Size(168, 22);
             this.格式化NginxToolStripMenuItem.Text = "格式化Nginx";
             this.格式化NginxToolStripMenuItem.Click += new System.EventHandler(this.格式化NginxToolStripMenuItem_Click);
+            // 
+            // 格式化代码一行ToolStripMenuItem
+            // 
+            this.格式化代码一行ToolStripMenuItem.Name = "格式化代码一行ToolStripMenuItem";
+            this.格式化代码一行ToolStripMenuItem.Size = new System.Drawing.Size(168, 22);
+            this.格式化代码一行ToolStripMenuItem.Text = "格式化代码(一行)";
+            this.格式化代码一行ToolStripMenuItem.Click += new System.EventHandler(this.formatCodeButton_Click);
+            // 
+            // 移除空行ToolStripMenuItem
+            // 
+            this.移除空行ToolStripMenuItem.Name = "移除空行ToolStripMenuItem";
+            this.移除空行ToolStripMenuItem.Size = new System.Drawing.Size(168, 22);
+            this.移除空行ToolStripMenuItem.Text = "移除空行";
+            this.移除空行ToolStripMenuItem.Click += new System.EventHandler(this.移除空行ToolStripMenuItem_Click);
+            // 
+            // 格式化文件名ToolStripMenuItem
+            // 
+            this.格式化文件名ToolStripMenuItem.Name = "格式化文件名ToolStripMenuItem";
+            this.格式化文件名ToolStripMenuItem.Size = new System.Drawing.Size(168, 22);
+            this.格式化文件名ToolStripMenuItem.Text = "格式化文件名";
+            this.格式化文件名ToolStripMenuItem.Click += new System.EventHandler(this.formatFileNameButton_Click);
+            // 
+            // 格式化注释块ToolStripMenuItem
+            // 
+            this.格式化注释块ToolStripMenuItem.Name = "格式化注释块ToolStripMenuItem";
+            this.格式化注释块ToolStripMenuItem.Size = new System.Drawing.Size(168, 22);
+            this.格式化注释块ToolStripMenuItem.Text = "格式化注释块";
+            this.格式化注释块ToolStripMenuItem.Click += new System.EventHandler(this.formatBlockCommentButton_Click);
+            // 
+            // sortSplitButton
+            // 
+            this.sortSplitButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
+            this.sortSplitButton.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.严格排序字符串ToolStripMenuItem});
+            this.sortSplitButton.Image = ((System.Drawing.Image)(resources.GetObject("sortSplitButton.Image")));
+            this.sortSplitButton.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.sortSplitButton.Name = "sortSplitButton";
+            this.sortSplitButton.Size = new System.Drawing.Size(48, 22);
+            this.sortSplitButton.Text = "排序";
+            // 
+            // 严格排序字符串ToolStripMenuItem
+            // 
+            this.严格排序字符串ToolStripMenuItem.Name = "严格排序字符串ToolStripMenuItem";
+            this.严格排序字符串ToolStripMenuItem.Size = new System.Drawing.Size(160, 22);
+            this.严格排序字符串ToolStripMenuItem.Text = "严格排序字符串";
+            this.严格排序字符串ToolStripMenuItem.Click += new System.EventHandler(this.formatOrderStringButton_Click);
             // 
             // toolStripExe
             // 
@@ -450,16 +492,16 @@
             this.formatEpub,
             this.clangFormatButton,
             this.formatEbooksByAuthorNameButton,
-            this.toolStripSplitButton2,
-            this.toolStripButton1,
+            this.lyndaButton,
             this.hotkeySplitButton,
             this.codeGeneratorButton,
             this.filesSpliteButton,
             this.magnetButton,
-            this.ebooksButton});
-            this.toolStripExe.Location = new System.Drawing.Point(0, 75);
+            this.ebooksButton,
+            this.代码段});
+            this.toolStripExe.Location = new System.Drawing.Point(0, 50);
             this.toolStripExe.Name = "toolStripExe";
-            this.toolStripExe.Size = new System.Drawing.Size(722, 25);
+            this.toolStripExe.Size = new System.Drawing.Size(771, 25);
             this.toolStripExe.TabIndex = 3;
             this.toolStripExe.Text = "toolStrip3";
             // 
@@ -518,18 +560,18 @@
             this.formatEbooksByAuthorNameButton.Text = "整理书籍到目录";
             this.formatEbooksByAuthorNameButton.Click += new System.EventHandler(this.formatEbooksByAuthorNameButton_Click);
             // 
-            // toolStripSplitButton2
+            // lyndaButton
             // 
-            this.toolStripSplitButton2.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.toolStripSplitButton2.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.lyndaButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
+            this.lyndaButton.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.加密文本文字ToolStripMenuItem,
             this.lRCToolStripMenuItem,
             this.lRC3ToolStripMenuItem});
-            this.toolStripSplitButton2.Image = ((System.Drawing.Image)(resources.GetObject("toolStripSplitButton2.Image")));
-            this.toolStripSplitButton2.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.toolStripSplitButton2.Name = "toolStripSplitButton2";
-            this.toolStripSplitButton2.Size = new System.Drawing.Size(32, 22);
-            this.toolStripSplitButton2.Text = "toolStripSplitButton2";
+            this.lyndaButton.Image = ((System.Drawing.Image)(resources.GetObject("lyndaButton.Image")));
+            this.lyndaButton.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.lyndaButton.Name = "lyndaButton";
+            this.lyndaButton.Size = new System.Drawing.Size(58, 22);
+            this.lyndaButton.Text = "Lynda";
             // 
             // 加密文本文字ToolStripMenuItem
             // 
@@ -552,16 +594,6 @@
             this.lRC3ToolStripMenuItem.Text = "LRC(-3)";
             this.lRC3ToolStripMenuItem.Click += new System.EventHandler(this.lRC3ToolStripMenuItem_Click);
             // 
-            // toolStripButton1
-            // 
-            this.toolStripButton1.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.toolStripButton1.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton1.Image")));
-            this.toolStripButton1.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.toolStripButton1.Name = "toolStripButton1";
-            this.toolStripButton1.Size = new System.Drawing.Size(23, 22);
-            this.toolStripButton1.Text = "toolStripButton1";
-            this.toolStripButton1.Click += new System.EventHandler(this.toolStripButton1_Click);
-            // 
             // hotkeySplitButton
             // 
             this.hotkeySplitButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
@@ -576,7 +608,7 @@
             // f1ToolStripMenuItem
             // 
             this.f1ToolStripMenuItem.Name = "f1ToolStripMenuItem";
-            this.f1ToolStripMenuItem.Size = new System.Drawing.Size(89, 22);
+            this.f1ToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.f1ToolStripMenuItem.Text = "F1";
             this.f1ToolStripMenuItem.Click += new System.EventHandler(this.f1ToolStripMenuItem_Click);
             // 
@@ -669,6 +701,24 @@
             this.格式化PDF转TXTToolStripMenuItem.Text = "格式化PDF转TXT";
             this.格式化PDF转TXTToolStripMenuItem.Click += new System.EventHandler(this.格式化PDF转TXTToolStripMenuItem_Click);
             // 
+            // 代码段
+            // 
+            this.代码段.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
+            this.代码段.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.格式化代码为段落ToolStripMenuItem});
+            this.代码段.Image = ((System.Drawing.Image)(resources.GetObject("代码段.Image")));
+            this.代码段.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.代码段.Name = "代码段";
+            this.代码段.Size = new System.Drawing.Size(60, 22);
+            this.代码段.Text = "代码段";
+            // 
+            // 格式化代码为段落ToolStripMenuItem
+            // 
+            this.格式化代码为段落ToolStripMenuItem.Name = "格式化代码为段落ToolStripMenuItem";
+            this.格式化代码为段落ToolStripMenuItem.Size = new System.Drawing.Size(172, 22);
+            this.格式化代码为段落ToolStripMenuItem.Text = "格式化代码为段落";
+            this.格式化代码为段落ToolStripMenuItem.Click += new System.EventHandler(this.格式化代码为段落ToolStripMenuItem_Click);
+            // 
             // htmltools
             // 
             this.htmltools.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
@@ -679,9 +729,9 @@
             this.zipSplitButton,
             this.sqliteSplitButton,
             this.sqlSplitButton});
-            this.htmltools.Location = new System.Drawing.Point(0, 100);
+            this.htmltools.Location = new System.Drawing.Point(0, 75);
             this.htmltools.Name = "htmltools";
-            this.htmltools.Size = new System.Drawing.Size(722, 25);
+            this.htmltools.Size = new System.Drawing.Size(771, 25);
             this.htmltools.TabIndex = 4;
             this.htmltools.Text = "toolStrip3";
             // 
@@ -885,9 +935,9 @@
             this.toolStripSeparator1,
             this.patternBox,
             this.generatorButton});
-            this.toolStrip3.Location = new System.Drawing.Point(0, 125);
+            this.toolStrip3.Location = new System.Drawing.Point(0, 100);
             this.toolStrip3.Name = "toolStrip3";
-            this.toolStrip3.Size = new System.Drawing.Size(722, 25);
+            this.toolStrip3.Size = new System.Drawing.Size(771, 25);
             this.toolStrip3.TabIndex = 5;
             this.toolStrip3.Text = "toolStrip3";
             // 
@@ -906,8 +956,7 @@
             // 获取屏幕颜色ToolStripMenuItem
             // 
             this.获取屏幕颜色ToolStripMenuItem.Name = "获取屏幕颜色ToolStripMenuItem";
-            this.获取屏幕颜色ToolStripMenuItem.ShortcutKeys = System.Windows.Forms.Keys.F1;
-            this.获取屏幕颜色ToolStripMenuItem.Size = new System.Drawing.Size(169, 22);
+            this.获取屏幕颜色ToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.获取屏幕颜色ToolStripMenuItem.Text = "获取屏幕颜色";
             this.获取屏幕颜色ToolStripMenuItem.Click += new System.EventHandler(this.获取屏幕颜色ToolStripMenuItem_Click);
             // 
@@ -995,8 +1044,8 @@
             this.generatorButton.Image = ((System.Drawing.Image)(resources.GetObject("generatorButton.Image")));
             this.generatorButton.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.generatorButton.Name = "generatorButton";
-            this.generatorButton.Size = new System.Drawing.Size(48, 22);
-            this.generatorButton.Text = "生成";
+            this.generatorButton.Size = new System.Drawing.Size(84, 22);
+            this.generatorButton.Text = "生成字符串";
             // 
             // 数组ToolStripMenuItem
             // 
@@ -1029,7 +1078,7 @@
             // textBox1
             // 
             this.textBox1.Font = new System.Drawing.Font("微软雅黑", 9F);
-            this.textBox1.Location = new System.Drawing.Point(0, 178);
+            this.textBox1.Location = new System.Drawing.Point(0, 153);
             this.textBox1.Multiline = true;
             this.textBox1.Name = "textBox1";
             this.textBox1.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
@@ -1051,9 +1100,9 @@
             this.s8,
             this.toolStripSeparator4,
             this.s9});
-            this.toolStrip4.Location = new System.Drawing.Point(0, 150);
+            this.toolStrip4.Location = new System.Drawing.Point(0, 125);
             this.toolStrip4.Name = "toolStrip4";
-            this.toolStrip4.Size = new System.Drawing.Size(722, 25);
+            this.toolStrip4.Size = new System.Drawing.Size(771, 25);
             this.toolStrip4.TabIndex = 7;
             this.toolStrip4.Text = "toolStrip4";
             // 
@@ -1155,25 +1204,18 @@
             // textBox2
             // 
             this.textBox2.Font = new System.Drawing.Font("微软雅黑", 9F);
-            this.textBox2.Location = new System.Drawing.Point(266, 178);
+            this.textBox2.Location = new System.Drawing.Point(266, 153);
             this.textBox2.Multiline = true;
             this.textBox2.Name = "textBox2";
             this.textBox2.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
             this.textBox2.Size = new System.Drawing.Size(260, 78);
             this.textBox2.TabIndex = 8;
             // 
-            // 上传databasesToolStripMenuItem
-            // 
-            this.上传databasesToolStripMenuItem.Name = "上传databasesToolStripMenuItem";
-            this.上传databasesToolStripMenuItem.Size = new System.Drawing.Size(184, 22);
-            this.上传databasesToolStripMenuItem.Text = "上传（databases）";
-            this.上传databasesToolStripMenuItem.Click += new System.EventHandler(this.上传databasesToolStripMenuItem_Click);
-            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(722, 263);
+            this.ClientSize = new System.Drawing.Size(771, 234);
             this.Controls.Add(this.textBox2);
             this.Controls.Add(this.toolStrip4);
             this.Controls.Add(this.textBox1);
@@ -1181,7 +1223,6 @@
             this.Controls.Add(this.htmltools);
             this.Controls.Add(this.toolStripExe);
             this.Controls.Add(this.toolStrip2);
-            this.Controls.Add(this.toolStrip1);
             this.Controls.Add(this.toolStripOne);
             this.Name = "Form1";
             this.Text = "Form1";
@@ -1189,8 +1230,6 @@
             this.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.Form1_MouseDoubleClick);
             this.toolStripOne.ResumeLayout(false);
             this.toolStripOne.PerformLayout();
-            this.toolStrip1.ResumeLayout(false);
-            this.toolStrip1.PerformLayout();
             this.toolStrip2.ResumeLayout(false);
             this.toolStrip2.PerformLayout();
             this.toolStripExe.ResumeLayout(false);
@@ -1209,27 +1248,19 @@
         #endregion
 
         private System.Windows.Forms.ToolStrip toolStripOne;
-        private System.Windows.Forms.ToolStripButton formatBlockCommentButton;
         private System.Windows.Forms.ToolStripButton extractMethodListButton;
-        private System.Windows.Forms.ToolStripSplitButton toolStripSplitButton1;
-        private System.Windows.Forms.ToolStripMenuItem 创建C文件ToolStripMenuItem;
-        private System.Windows.Forms.ToolStrip toolStrip1;
-        private System.Windows.Forms.ToolStripButton formatFileNameButton;
-        private System.Windows.Forms.ToolStripButton formatOrderStringButton;
         private System.Windows.Forms.ToolStrip toolStrip2;
         private System.Windows.Forms.ToolStrip toolStripExe;
         private System.Windows.Forms.ToolStrip htmltools;
         private System.Windows.Forms.ToolStripButton formatTableButton;
-        private System.Windows.Forms.ToolStripButton formatCodeButton;
         private System.Windows.Forms.ToolStripButton formatEbooksByAuthorNameButton;
         private System.Windows.Forms.ToolStripButton clangFormatButton;
         private System.Windows.Forms.ToolStripButton formatMSDNTableButton;
         private System.Windows.Forms.ToolStripSplitButton generateButton;
         private System.Windows.Forms.ToolStripMenuItem cHeaderDefineToCConstantsToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem generateVirtualCodeToolStripMenuItem;
-        private System.Windows.Forms.ToolStripSplitButton toolStripSplitButton2;
+        private System.Windows.Forms.ToolStripSplitButton lyndaButton;
         private System.Windows.Forms.ToolStripMenuItem 加密文本文字ToolStripMenuItem;
-        private System.Windows.Forms.ToolStripButton toolStripButton1;
         private System.Windows.Forms.ToolStripMenuItem lRCToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem lRC3ToolStripMenuItem;
         private System.Windows.Forms.ToolStrip toolStrip3;
@@ -1320,6 +1351,20 @@
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator8;
         private System.Windows.Forms.ToolStripMenuItem 上传imagesToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem 上传databasesToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem 下载databasesToolStripMenuItem;
+        private System.Windows.Forms.ToolStripSplitButton javascriptSplitButton;
+        private System.Windows.Forms.ToolStripMenuItem 排序JSONToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem 格式化代码一行ToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem 移除空行ToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem 格式化文件名ToolStripMenuItem;
+        private System.Windows.Forms.ToolStripSplitButton sortSplitButton;
+        private System.Windows.Forms.ToolStripMenuItem 严格排序字符串ToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem 格式化注释块ToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem 提取PREToolStripMenuItem;
+        private System.Windows.Forms.ToolStripSplitButton 代码段;
+        private System.Windows.Forms.ToolStripMenuItem 格式化代码为段落ToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem 生成CSSLinksToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem 合并CSSToolStripMenuItem;
     }
 }
 
